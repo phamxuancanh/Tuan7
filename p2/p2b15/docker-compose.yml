@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'  # Giới hạn sử dụng 50% CPU
+        reservations:
+          memory: 256M  # Dự trữ 256MB RAM cho container
+          cpus: '0.2'   # Dự trữ 20% CPU cho container
